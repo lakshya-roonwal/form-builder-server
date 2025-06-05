@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 
 import type { Request, Response } from 'express';
 import { connectToDB } from './db';
+import userRoute from './routes/user.route';
 
 
 const app = express();
@@ -24,6 +25,7 @@ const healthCheck = async (req: Request, res: Response) => {
 };
 
 app.get('/healthcheck', healthCheck);
+app.use('/api/v1/', userRoute);
 
 
 export default app;

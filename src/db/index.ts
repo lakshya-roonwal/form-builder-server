@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 import { DB_NAME } from '../constants'
 
-const connectToDB = async () => {
+export const connectToDB = async () => {
     try {
         const connectionInstantce = await mongoose.connect(
             `${process.env.MONGO_DB_URL}/${DB_NAME}`
@@ -14,5 +14,3 @@ const connectToDB = async () => {
         console.log("db error", err);
     }
 };
-module.exports = connectToDB;
-
